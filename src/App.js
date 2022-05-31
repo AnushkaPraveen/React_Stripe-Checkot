@@ -1,23 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import StripeCheckout from 'react-stripe-checkout';
+
 
 function App() {
+
+function handleToken(token,addresses){
+  console.log({token,addresses});
+}
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>React Stripe Checkout</h1>
+      <StripeCheckout
+        token={handleToken}
+        stripeKey="Publishable key" //insert Publishable key of stripe API keys
+      />
     </div>
   );
 }
